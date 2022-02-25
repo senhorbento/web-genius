@@ -85,12 +85,20 @@ let gameOver = () =>{
     order = [];
     clickedOrder = [];
 
-    playGame();
+    playAgain();
+}
+
+//reiniciou
+let playAgain = () =>{
+    score = 0;
+    alert('Pontuação zerada, iniciando novo jogo...')
+    
+    nextLevel();
 }
 
 //inicio do jogo
 let playGame = () =>{
-    alert('Bem vindo ao Web Genius! Iniciando novo jogo!')
+    alert('Bem vindo ao Web Genius!\nIniciando novo jogo!')
     score = 0;
 
     nextLevel();
