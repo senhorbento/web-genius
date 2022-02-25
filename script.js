@@ -41,7 +41,7 @@ let checkOrder = () =>{
         }
     }
     if(clickedOrder.length == order.length){
-        alert(`Pontuação: ${score}\nVocê acertou!\n Iniciando próxima rodada!`);
+        alert(`Pontuação: ${score}\nVocê acertou!\nIniciando próxima rodada!`);
         nextLevel();
     }
 }
