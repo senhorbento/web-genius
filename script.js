@@ -1,6 +1,7 @@
 let order = [];
 let clickedOrder = [];
 let score;
+let rodada = 1;
 
 // 0 RED/1 GREEN/2 BLUE/3 PURPLE
 
@@ -84,23 +85,18 @@ let gameOver = () =>{
     alert(`Pontuação final: ${score}\nVocê perdeu!\nClique em ok para jogar novamente...`);
     order = [];
     clickedOrder = [];
-
-    playAgain();
-}
-
-//reiniciou
-let playAgain = () =>{
-    score = 0;
-    alert('Pontuação zerada, iniciando novo jogo...')
-    
-    nextLevel();
+    rodada=0;
+    playGame();
 }
 
 //inicio do jogo
 let playGame = () =>{
-    alert('Bem vindo ao Web Genius!\nIniciando novo jogo!')
     score = 0;
-
+    if(rodada)
+        alert('Bem vindo ao Web Genius!\nIniciando novo jogo!');
+    else
+        alert('Pontuação zerada!\nIniciando novo jogo...');
+    
     nextLevel();
 }
 
