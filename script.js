@@ -25,12 +25,12 @@ let shuffleOrder = () => {
 //Acende a cor
 let lightColor = (element, number) =>{
     number = number * 500;
-    setTimeout(() =>{
+    //setTimeout(() =>{
         element.classList.add('selected');
-    }, number - 250);
-    /*setTimeout(() =>{
+    //}, number - 250);
+    setTimeout(() =>{
         element.classList.remove('selected');
-    });*/
+    },number);
 }
 
 //Checa se os botoes foram apertados na ordem certa
@@ -92,7 +92,7 @@ let gameOver = () =>{
 //inicio do jogo
 let playGame = () =>{
     score = 0;
-    if(rodada)
+    if(rodada === 1)
         alert('Bem vindo ao Web Genius!\nIniciando novo jogo!');
     else
         alert('Pontuação zerada!\nIniciando novo jogo...');
