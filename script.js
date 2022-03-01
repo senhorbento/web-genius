@@ -27,7 +27,7 @@ let lightColor = (element, number) =>{
     },number+100);
     setTimeout(() => {
         element.classList.remove('selected');
-    },number+300);
+    },number+400);
 }
 
 let checkOrder = () =>{
