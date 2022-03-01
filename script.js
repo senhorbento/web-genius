@@ -10,30 +10,26 @@ const green = document.querySelector('.green');
 const blue = document.querySelector('.blue');
 const purple = document.querySelector('.purple');
 
-
-//Cria ordem aleatoria
 let shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4);
     order[order.length] = colorOrder;
     clickedOrder = [];
     for(let i in order){
-        let elementColor = createColorElement(order[i]);
+        let elementColor = returnColorElement(order[i]);
         lightColor(elementColor,Number(i)+1);
     }
 }
 
-//Acende a cor
 let lightColor = (element, number) =>{
     number = number * 500;
-    //setTimeout(() =>{
+    setTimeout(() => {
         element.classList.add('selected');
-    //}, number - 250);
-    setTimeout(() =>{
+    },number+100);
+    setTimeout(() => {
         element.classList.remove('selected');
-    },number);
+    },number+300);
 }
 
-//Checa se os botoes foram apertados na ordem certa
 let checkOrder = () =>{
     for(let i in clickedOrder){
         if(clickedOrder[i]!=order[i]){
@@ -42,24 +38,21 @@ let checkOrder = () =>{
         }
     }
     if(clickedOrder.length == order.length){
-        alert(`Pontuação: ${score}\nVocê acertou!\nIniciando próxima rodada!`);
         nextLevel();
     }
 }
 
-//Checa o clique
 let click = (color) =>{
     clickedOrder[clickedOrder.length] = color;
-    createColorElement(color).classList.add('selected');
+    returnColorElement(color).classList.add('selected');
     
     setTimeout(() =>{
-        createColorElement(color).classList.remove('selected');
+        returnColorElement(color).classList.remove('selected');
         checkOrder();
-    },250);
+    },100);
 }
 
-//retorna a cor
-let createColorElement = (color) =>{
+let returnColorElement = (color) =>{
     if(color == 0){
         return red;
     }
@@ -74,13 +67,11 @@ let createColorElement = (color) =>{
     }
 }
 
-//proxima rodada
 let nextLevel = () =>{
     score++;
     shuffleOrder();
 }
 
-//perdeu
 let gameOver = () =>{
     alert(`Pontuação final: ${score}\nVocê perdeu!\nClique em ok para jogar novamente...`);
     order = [];
@@ -89,7 +80,6 @@ let gameOver = () =>{
     playGame();
 }
 
-//inicio do jogo
 let playGame = () =>{
     score = 0;
     if(rodada === 1)
@@ -100,12 +90,9 @@ let playGame = () =>{
     nextLevel();
 }
 
-//clique para cor
 red.onclick = () => click(0);
 green.onclick = () => click(1);
 blue.onclick = () => click(2);
 purple.onclick = () => click(3);
 
-
-//iniciar o jogo
 playGame();
