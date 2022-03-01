@@ -73,7 +73,7 @@ let nextLevel = () =>{
 }
 
 let gameOver = () =>{
-    alert(`Pontuação final: ${score}\nVocê perdeu!\nClique em ok para jogar novamente...`);
+    alert(`Pontuação final: ${score}\nVocê perdeu!\nPressione OK para jogar novamente...`);
     order = [];
     clickedOrder = [];
     rodada=0;
@@ -83,7 +83,7 @@ let gameOver = () =>{
 let playGame = () =>{
     score = 0;
     if(rodada === 1)
-        alert('Bem vindo ao Web Genius!\nIniciando novo jogo!');
+        alert('Bem vindo ao Web Genius!\nPressione OK para iniciar um novo jogo!');
     else
         alert('Pontuação zerada!\nIniciando novo jogo...');
     
